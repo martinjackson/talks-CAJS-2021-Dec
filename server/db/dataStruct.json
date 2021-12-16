@@ -1,0 +1,472 @@
+{
+	"movies.country": {
+		"pk": ["country_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "country_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "country_iso_code",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 10,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "country_name",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 200,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.department": {
+		"pk": ["department_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "department_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "department_name",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 200,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.gender": {
+		"pk": ["gender_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "gender_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "gender",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 20,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.genre": {
+		"pk": ["genre_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "genre_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "genre_name",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 100,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.keyword": {
+		"pk": ["keyword_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "keyword_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "keyword_name",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 100,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.language": {
+		"pk": ["language_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "language_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "language_code",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 10,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "language_name",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 500,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.language_role": {
+		"pk": ["role_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "role_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "language_role",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 20,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.movie": {
+		"pk": ["movie_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "movie_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "title",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 1000,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "budget",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "homepage",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 1000,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "overview",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 1000,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "popularity",
+				"DATA_TYPE": "DECIMAL",
+				"DATA_LENGTH": 12,
+				"DATA_SCALE": 6,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "release_date",
+				"DATA_TYPE": "DATE",
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "revenue",
+				"DATA_TYPE": "BIGINT",
+				"DATA_LENGTH": 20,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "runtime",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 5,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "movie_status",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 50,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "tagline",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 1000,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "vote_average",
+				"DATA_TYPE": "DECIMAL",
+				"DATA_LENGTH": 4,
+				"DATA_SCALE": 2,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "vote_count",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.movie_cast": {
+		"pk": [],
+		"fk": ["gender_id","movie_id","person_id"],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "movie_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "person_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "character_name",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 400,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "gender_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "cast_order",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 5,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.movie_company": {
+		"pk": [],
+		"fk": ["company_id","movie_id"],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "movie_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "company_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.movie_crew": {
+		"pk": [],
+		"fk": ["department_id","movie_id","person_id"],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "movie_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "person_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "department_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "job",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 200,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.movie_genres": {
+		"pk": [],
+		"fk": ["genre_id","movie_id"],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "movie_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "genre_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.movie_keywords": {
+		"pk": [],
+		"fk": ["keyword_id","movie_id"],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "movie_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "keyword_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.movie_languages": {
+		"pk": [],
+		"fk": ["language_id","movie_id","language_role_id"],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "movie_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "language_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "language_role_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.person": {
+		"pk": ["person_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "person_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "person_name",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 500,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.production_company": {
+		"pk": ["company_id"],
+		"fk": [],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "company_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "N"
+			},
+			{
+				"COLUMN_NAME": "company_name",
+				"DATA_TYPE": "VARCHAR",
+				"DATA_LENGTH": 200,
+				"NULLABLE": "Y"
+			}
+		]
+	},
+	"movies.production_country": {
+		"pk": [],
+		"fk": ["country_id","movie_id"],
+		"uk": [],
+		"fields": [
+			{
+				"COLUMN_NAME": "movie_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			},
+			{
+				"COLUMN_NAME": "country_id",
+				"DATA_TYPE": "INT",
+				"DATA_LENGTH": 10,
+				"DATA_SCALE": null,
+				"NULLABLE": "Y"
+			}
+		]
+	}
+}

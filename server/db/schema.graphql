@@ -1,0 +1,238 @@
+
+scalar Date
+scalar Blob
+
+ """                            from movies.country """
+type Country {
+ country_id: Int!,
+ country_iso_code: String,
+ country_name: String,
+ production_countrys: [Production_country]
+}
+
+"""                            from movies.department """
+type Department {
+ department_id: Int!,
+ department_name: String,
+ movie_crews: [Movie_crew]
+}
+
+"""                            from movies.gender """
+type Gender {
+ gender_id: Int!,
+ gender: String,
+ movie_casts: [Movie_cast]
+}
+
+"""                            from movies.genre """
+type Genre {
+ genre_id: Int!,
+ genre_name: String,
+ movie_genress: [Movie_genres]
+}
+
+"""                            from movies.keyword """
+type Keyword {
+ keyword_id: Int!,
+ keyword_name: String,
+ movie_keywordss: [Movie_keywords]
+}
+
+"""                            from movies.language """
+type Language {
+ language_id: Int!,
+ language_code: String,
+ language_name: String,
+ movie_languagess: [Movie_languages]
+}
+
+"""                            from movies.language_role """
+type Language_role {
+ role_id: Int!,
+ language_role: String
+}
+
+"""                            from movies.movie """
+type Movie {
+ movie_id: Int!,
+ title: String,
+ budget: Int,
+ homepage: String,
+ overview: String,
+ popularity: Float,
+ release_date: Date,
+ revenue: Int,
+ runtime: Int,
+ movie_status: String,
+ tagline: String,
+ vote_average: Float,
+ vote_count: Int,
+ movie_casts: [Movie_cast],
+ movie_companys: [Movie_company],
+ movie_crews: [Movie_crew],
+ movie_genress: [Movie_genres],
+ movie_keywordss: [Movie_keywords],
+ movie_languagess: [Movie_languages],
+ production_countrys: [Production_country]
+}
+
+"""                            from movies.person """
+type Person {
+ person_id: Int!,
+ person_name: String,
+ movie_casts: [Movie_cast],
+ movie_crews: [Movie_crew]
+}
+
+"""                            from movies.production_company """
+type Production_company {
+ company_id: Int!,
+ company_name: String,
+ movie_companys: [Movie_company]
+}
+ 
+"""                            from movies.production_country     (something went wrong had to mannualy add) """
+type Production_country {
+ movie_id: Int!,
+ country_id: Int!
+}
+ 
+ """                            from movies.country """
+input CountryEntry {
+ country_id: Int!,
+ country_iso_code: String,
+ country_name: String
+}
+
+"""                            from movies.department """
+input DepartmentEntry {
+ department_id: Int!,
+ department_name: String
+}
+
+"""                            from movies.gender """
+input GenderEntry {
+ gender_id: Int!,
+ gender: String
+}
+
+"""                            from movies.genre """
+input GenreEntry {
+ genre_id: Int!,
+ genre_name: String
+}
+
+"""                            from movies.keyword """
+input KeywordEntry {
+ keyword_id: Int!,
+ keyword_name: String
+}
+
+"""                            from movies.language """
+input LanguageEntry {
+ language_id: Int!,
+ language_code: String,
+ language_name: String
+}
+
+"""                            from movies.language_role """
+input Language_roleEntry {
+ role_id: Int!,
+ language_role: String
+}
+
+"""                            from movies.movie """
+input MovieEntry {
+ movie_id: Int!,
+ title: String,
+ budget: Int,
+ homepage: String,
+ overview: String,
+ popularity: Float,
+ release_date: Date,
+ revenue: Int,
+ runtime: Int,
+ movie_status: String,
+ tagline: String,
+ vote_average: Float,
+ vote_count: Int
+}
+
+"""                            from movies.person """
+input PersonEntry {
+ person_id: Int!,
+ person_name: String
+}
+
+"""                            from movies.production_company """
+input Production_companyEntry {
+ company_id: Int!,
+ company_name: String
+}
+ 
+
+type Query {
+  countrys: [Country],
+  country(country_id: Int!): Country,
+  departments: [Department],
+  department(department_id: Int!): Department,
+  genders: [Gender],
+  gender(gender_id: Int!): Gender,
+  genres: [Genre],
+  genre(genre_id: Int!): Genre,
+  keywords: [Keyword],
+  keyword(keyword_id: Int!): Keyword,
+  languages: [Language],
+  language(language_id: Int!): Language,
+  language_roles: [Language_role],
+  language_role(role_id: Int!): Language_role,
+  movies: [Movie],
+  movie(movie_id: Int!): Movie,
+  persons: [Person],
+  person(person_id: Int!): Person,
+  production_companys: [Production_company],
+  production_company(company_id: Int!): Production_company
+}
+
+type Mutation {
+  
+  createCountry(input: CountryEntry): Country! ,
+  updateCountry(country_id: Int!, input: CountryEntry): Country! ,
+  deleteCountry(country_id: Int!): Country! ,
+  
+  createDepartment(input: DepartmentEntry): Department! ,
+  updateDepartment(department_id: Int!, input: DepartmentEntry): Department! ,
+  deleteDepartment(department_id: Int!): Department! ,
+  
+  createGender(input: GenderEntry): Gender! ,
+  updateGender(gender_id: Int!, input: GenderEntry): Gender! ,
+  deleteGender(gender_id: Int!): Gender! ,
+  
+  createGenre(input: GenreEntry): Genre! ,
+  updateGenre(genre_id: Int!, input: GenreEntry): Genre! ,
+  deleteGenre(genre_id: Int!): Genre! ,
+  
+  createKeyword(input: KeywordEntry): Keyword! ,
+  updateKeyword(keyword_id: Int!, input: KeywordEntry): Keyword! ,
+  deleteKeyword(keyword_id: Int!): Keyword! ,
+  
+  createLanguage(input: LanguageEntry): Language! ,
+  updateLanguage(language_id: Int!, input: LanguageEntry): Language! ,
+  deleteLanguage(language_id: Int!): Language! ,
+  
+  createLanguage_role(input: Language_roleEntry): Language_role! ,
+  updateLanguage_role(role_id: Int!, input: Language_roleEntry): Language_role! ,
+  deleteLanguage_role(role_id: Int!): Language_role! ,
+  
+  createMovie(input: MovieEntry): Movie! ,
+  updateMovie(movie_id: Int!, input: MovieEntry): Movie! ,
+  deleteMovie(movie_id: Int!): Movie! ,
+  
+  createPerson(input: PersonEntry): Person! ,
+  updatePerson(person_id: Int!, input: PersonEntry): Person! ,
+  deletePerson(person_id: Int!): Person! ,
+  
+  createProduction_company(input: Production_companyEntry): Production_company! ,
+  updateProduction_company(company_id: Int!, input: Production_companyEntry): Production_company! ,
+  deleteProduction_company(company_id: Int!): Production_company! 
+}

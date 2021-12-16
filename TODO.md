@@ -1,8 +1,8 @@
 __for Working Demo__
 
-- [ ] mermaid data flow diagram
-- [ ] add "no Camel" switch to schema.graphql generator 
-- [ ] rework getSQLResult(sql) -> getDBQuery({table,fields,where})
+- [x] mermaid data flow diagram
+- [x] add "no Camel" switch to schema.graphql generator 
+- [x] rework getSQLResult(sql) -> getDBQuery({table,fields,where})
 
 
 - [ ] working helpers.js        
@@ -12,9 +12,18 @@ __for Presentation__
 - [ ] google chrome browser in vscode 
 
 
-DataStar           ->  convert-mysql-to-mongo.js  -> MongoDB
-database
-example in mySql
+BUGS
+- [ ] equivalent GraphQL types where not generated
+  CREATE TABLE `movie_cast` (
+  CREATE TABLE `movie_company` (
+  CREATE TABLE `movie_crew` (
+  CREATE TABLE `movie_genres` (
+  CREATE TABLE `movie_keywords` (
+  CREATE TABLE `movie_languages` (
+  CREATE TABLE `production_country` (
+
+
+
 
 
 

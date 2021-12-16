@@ -53,6 +53,7 @@ function getMysqlTables(mysqlConnection, callback) {
 
 }
 
+// ---------------------------------------------------------------------------------------------------
 function tableToCollection(mysqlConnection, tableName, mongoCollection, callback) {
     var sql = 'SELECT * FROM ' + tableName + ';';
     mysqlConnection.query(sql, function (error, results, fields) {
