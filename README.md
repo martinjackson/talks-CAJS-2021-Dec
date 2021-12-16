@@ -38,13 +38,14 @@ https://www.databasestar.com/sample-data-download-page
 
 ```mermaid
 graph TD;
-    A[www.databasestar.com sample-data-download-page] -->|sample_data_movies_mysql.sql| C[(MySQL DB)];
+    A[www.databasestar.com sample-data-download-page] --> M{{sample_data_movies_mysql.sql}};
+    M --> C[(MySQL DB)];
     C -->|convert-mysql-to-mongo.js| D[(Mongo DB)];
-    C -->|convert-mysql-to-mongo.js| E[dataStruct.json];
+    M -->|create-dataStruct.js| E[dataStruct.json];
     E -->|gen-graphql-schema.js| F[schema.graphlq helpers.js resolvers.js];
     F --> G[Nodejs Express GraphQL]
     G --> H[GraphQLi web interface]
-    H --> I[React Single-Page-App]
+    H -->|future| I[React Single-Page-App]
     D -.-> G
     G -.-> D
 ```
