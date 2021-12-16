@@ -28,15 +28,25 @@ __Twitter:__ <a href="https://twitter.com/martin_jackso"> @martin_jackso</a>
 ![My opinions are my own](images/nctr-disclaimer.png)
 
 ---
+### I am using Mermaid Graphs in this Markdown, you will need the following Google Chrome plugin to see the graphs.
+
+Chrome: https://chrome.google.com/webstore/detail/github-%20-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe?hl=en
+
+---
 
 https://www.databasestar.com/sample-data-download-page
 
 ```mermaid
 graph TD;
-    A[www.databasestar.com sample-data-download-page] -->|sample_data_movies_mysql.sql| C[MySQL];
-    C -->|convert-mysql-to-mongo.js| D[MongoDB];
+    A[www.databasestar.com sample-data-download-page] -->|sample_data_movies_mysql.sql| C[(MySQL DB)];
+    C -->|convert-mysql-to-mongo.js| D[(Mongo DB)];
     C -->|convert-mysql-to-mongo.js| E[dataStruct.json];
-    E -->|gen-graphql-schema.js| F[schema.graphlq];
+    E -->|gen-graphql-schema.js| F[schema.graphlq helpers.js resolvers.js];
+    F --> G[Nodejs Express GraphQL]
+    G --> H[GraphQLi web interface]
+    H --> I[React Single-Page-App]
+    D -.-> G
+    G -.-> D
 ```
 
 `node ` [convert-mysql-to-mongo.js](./code/convert-mysql-to-mongo.js)
