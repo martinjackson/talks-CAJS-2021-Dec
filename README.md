@@ -39,8 +39,8 @@ https://www.databasestar.com/sample-data-download-page
 ```mermaid
 graph TD;
     A[www.databasestar.com sample-data-download-page] --> M[sample_data_movies_mysql.sql];
-    M --> C[(MySQL DB)];
-    C -->|convert-mysql-to-mongo.js| D[(Mongo DB)];
+    M --> C[MySQL DB];
+    C -->|convert-mysql-to-mongo.js| D[Mongo DB];
     M -->|create-dataStruct.js| E[dataStruct.json];
     E -->|gen-graphql-schema.js| F[schema.graphlq helpers.js resolvers.js];
     F --> G[Nodejs Express GraphQL]
