@@ -3,25 +3,8 @@ __for Working Demo__
 - [x] mermaid data flow diagram
 - [x] add "no Camel" switch to schema.graphql generator 
 - [x] rework getSQLResult(sql) -> getDBQuery({table,fields,where})
-
-
-- [ ] working helpers.js        
+     
 - [ ] working resolvers.js
-
-__for Presentation__
-- [ ] google chrome browser in vscode 
-
-
-BUGS
-- [ ] equivalent GraphQL types where not generated
-  CREATE TABLE `movie_cast` (
-  CREATE TABLE `movie_company` (
-  CREATE TABLE `movie_crew` (
-  CREATE TABLE `movie_genres` (
-  CREATE TABLE `movie_keywords` (
-  CREATE TABLE `movie_languages` (
-  CREATE TABLE `production_country` (
-
 
 
 
