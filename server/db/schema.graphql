@@ -7,35 +7,35 @@ type Country {
  country_id: Int!,
  country_iso_code: String,
  country_name: String,
- production_countrys: [Production_country]
+ production_country: [Production_country]
 }
 
 """                            from movies.department """
 type Department {
  department_id: Int!,
  department_name: String,
- movie_crews: [Movie_crew]
+ movie_crew: [Movie_crew]
 }
 
 """                            from movies.gender """
 type Gender {
  gender_id: Int!,
  gender: String,
- movie_casts: [Movie_cast]
+ movie_cast: [Movie_cast]
 }
 
 """                            from movies.genre """
 type Genre {
  genre_id: Int!,
  genre_name: String,
- movie_genress: [Movie_genres]
+ movie_genres: [Movie_genres]
 }
 
 """                            from movies.keyword """
 type Keyword {
  keyword_id: Int!,
  keyword_name: String,
- movie_keywordss: [Movie_keywords]
+ movie_keywords: [Movie_keywords]
 }
 
 """                            from movies.language """
@@ -43,7 +43,7 @@ type Language {
  language_id: Int!,
  language_code: String,
  language_name: String,
- movie_languagess: [Movie_languages]
+ movie_languages: [Movie_languages]
 }
 
 """                            from movies.language_role """
@@ -67,34 +67,76 @@ type Movie {
  tagline: String,
  vote_average: Float,
  vote_count: Int,
- movie_casts: [Movie_cast],
- movie_companys: [Movie_company],
- movie_crews: [Movie_crew],
- movie_genress: [Movie_genres],
- movie_keywordss: [Movie_keywords],
- movie_languagess: [Movie_languages],
- production_countrys: [Production_country]
+ movie_cast: [Movie_cast],
+ movie_company: [Movie_company],
+ movie_crew: [Movie_crew],
+ movie_genres: [Movie_genres],
+ movie_keywords: [Movie_keywords],
+ movie_languages: [Movie_languages],
+ production_country: [Production_country]
+}
+
+"""                            from movies.movie_cast """
+type Movie_cast {
+ movie_id: Int,
+ person_id: Int,
+ character_name: String,
+ gender_id: Int,
+ cast_order: Int
+}
+
+"""                            from movies.movie_company """
+type Movie_company {
+ movie_id: Int,
+ company_id: Int
+}
+
+"""                            from movies.movie_crew """
+type Movie_crew {
+ movie_id: Int,
+ person_id: Int,
+ department_id: Int,
+ job: String
+}
+
+"""                            from movies.movie_genres """
+type Movie_genres {
+ movie_id: Int,
+ genre_id: Int
+}
+
+"""                            from movies.movie_keywords """
+type Movie_keywords {
+ movie_id: Int,
+ keyword_id: Int
+}
+
+"""                            from movies.movie_languages """
+type Movie_languages {
+ movie_id: Int,
+ language_id: Int,
+ language_role_id: Int
 }
 
 """                            from movies.person """
 type Person {
  person_id: Int!,
  person_name: String,
- movie_casts: [Movie_cast],
- movie_crews: [Movie_crew]
+ movie_cast: [Movie_cast],
+ movie_crew: [Movie_crew]
 }
 
 """                            from movies.production_company """
 type Production_company {
  company_id: Int!,
  company_name: String,
- movie_companys: [Movie_company]
+ movie_company: [Movie_company]
 }
- 
-"""                            from movies.production_country     (something went wrong had to mannualy add) """
+
+"""                            from movies.production_country """
 type Production_country {
- movie_id: Int!,
- country_id: Int!
+ movie_id: Int,
+ country_id: Int
 }
  
  """                            from movies.country """
@@ -158,6 +200,48 @@ input MovieEntry {
  vote_count: Int
 }
 
+"""                            from movies.movie_cast """
+input Movie_castEntry {
+ movie_id: Int,
+ person_id: Int,
+ character_name: String,
+ gender_id: Int,
+ cast_order: Int
+}
+
+"""                            from movies.movie_company """
+input Movie_companyEntry {
+ movie_id: Int,
+ company_id: Int
+}
+
+"""                            from movies.movie_crew """
+input Movie_crewEntry {
+ movie_id: Int,
+ person_id: Int,
+ department_id: Int,
+ job: String
+}
+
+"""                            from movies.movie_genres """
+input Movie_genresEntry {
+ movie_id: Int,
+ genre_id: Int
+}
+
+"""                            from movies.movie_keywords """
+input Movie_keywordsEntry {
+ movie_id: Int,
+ keyword_id: Int
+}
+
+"""                            from movies.movie_languages """
+input Movie_languagesEntry {
+ movie_id: Int,
+ language_id: Int,
+ language_role_id: Int
+}
+
 """                            from movies.person """
 input PersonEntry {
  person_id: Int!,
@@ -169,70 +253,101 @@ input Production_companyEntry {
  company_id: Int!,
  company_name: String
 }
+
+"""                            from movies.production_country """
+input Production_countryEntry {
+ movie_id: Int,
+ country_id: Int
+}
  
 
 type Query {
-  countrys: [Country],
   country(country_id: Int!): Country,
-  departments: [Department],
   department(department_id: Int!): Department,
-  genders: [Gender],
   gender(gender_id: Int!): Gender,
-  genres: [Genre],
   genre(genre_id: Int!): Genre,
-  keywords: [Keyword],
   keyword(keyword_id: Int!): Keyword,
-  languages: [Language],
   language(language_id: Int!): Language,
-  language_roles: [Language_role],
   language_role(role_id: Int!): Language_role,
-  movies: [Movie],
   movie(movie_id: Int!): Movie,
-  persons: [Person],
+  movie_cast: Movie_cast,
+  movie_company: Movie_company,
+  movie_crew: Movie_crew,
+  movie_genres: Movie_genres,
+  movie_keywords: Movie_keywords,
+  movie_languages: Movie_languages,
   person(person_id: Int!): Person,
-  production_companys: [Production_company],
-  production_company(company_id: Int!): Production_company
+  production_company(company_id: Int!): Production_company,
+  production_country: Production_country
 }
 
 type Mutation {
   
-  createCountry(input: CountryEntry): Country! ,
-  updateCountry(country_id: Int!, input: CountryEntry): Country! ,
-  deleteCountry(country_id: Int!): Country! ,
+  createCountry(input: CountryEntry): Country!,
+  updateCountry(country_id: Int!, input: CountryEntry): Country!,
+  deleteCountry(where: Country): Boolean,
   
-  createDepartment(input: DepartmentEntry): Department! ,
-  updateDepartment(department_id: Int!, input: DepartmentEntry): Department! ,
-  deleteDepartment(department_id: Int!): Department! ,
+  createDepartment(input: DepartmentEntry): Department!,
+  updateDepartment(department_id: Int!, input: DepartmentEntry): Department!,
+  deleteDepartment(where: Department): Boolean,
   
-  createGender(input: GenderEntry): Gender! ,
-  updateGender(gender_id: Int!, input: GenderEntry): Gender! ,
-  deleteGender(gender_id: Int!): Gender! ,
+  createGender(input: GenderEntry): Gender!,
+  updateGender(gender_id: Int!, input: GenderEntry): Gender!,
+  deleteGender(where: Gender): Boolean,
   
-  createGenre(input: GenreEntry): Genre! ,
-  updateGenre(genre_id: Int!, input: GenreEntry): Genre! ,
-  deleteGenre(genre_id: Int!): Genre! ,
+  createGenre(input: GenreEntry): Genre!,
+  updateGenre(genre_id: Int!, input: GenreEntry): Genre!,
+  deleteGenre(where: Genre): Boolean,
   
-  createKeyword(input: KeywordEntry): Keyword! ,
-  updateKeyword(keyword_id: Int!, input: KeywordEntry): Keyword! ,
-  deleteKeyword(keyword_id: Int!): Keyword! ,
+  createKeyword(input: KeywordEntry): Keyword!,
+  updateKeyword(keyword_id: Int!, input: KeywordEntry): Keyword!,
+  deleteKeyword(where: Keyword): Boolean,
   
-  createLanguage(input: LanguageEntry): Language! ,
-  updateLanguage(language_id: Int!, input: LanguageEntry): Language! ,
-  deleteLanguage(language_id: Int!): Language! ,
+  createLanguage(input: LanguageEntry): Language!,
+  updateLanguage(language_id: Int!, input: LanguageEntry): Language!,
+  deleteLanguage(where: Language): Boolean,
   
-  createLanguage_role(input: Language_roleEntry): Language_role! ,
-  updateLanguage_role(role_id: Int!, input: Language_roleEntry): Language_role! ,
-  deleteLanguage_role(role_id: Int!): Language_role! ,
+  createLanguage_role(input: Language_roleEntry): Language_role!,
+  updateLanguage_role(role_id: Int!, input: Language_roleEntry): Language_role!,
+  deleteLanguage_role(where: Language_role): Boolean,
   
-  createMovie(input: MovieEntry): Movie! ,
-  updateMovie(movie_id: Int!, input: MovieEntry): Movie! ,
-  deleteMovie(movie_id: Int!): Movie! ,
+  createMovie(input: MovieEntry): Movie!,
+  updateMovie(movie_id: Int!, input: MovieEntry): Movie!,
+  deleteMovie(where: Movie): Boolean,
   
-  createPerson(input: PersonEntry): Person! ,
-  updatePerson(person_id: Int!, input: PersonEntry): Person! ,
-  deletePerson(person_id: Int!): Person! ,
+  createMovie_cast(input: Movie_castEntry): Movie_cast!,
+  updateMovie_cast(input: Movie_castEntry): Movie_cast!,
+  deleteMovie_cast(where: Movie_cast): Boolean,
   
-  createProduction_company(input: Production_companyEntry): Production_company! ,
-  updateProduction_company(company_id: Int!, input: Production_companyEntry): Production_company! ,
-  deleteProduction_company(company_id: Int!): Production_company! 
+  createMovie_company(input: Movie_companyEntry): Movie_company!,
+  updateMovie_company(input: Movie_companyEntry): Movie_company!,
+  deleteMovie_company(where: Movie_company): Boolean,
+  
+  createMovie_crew(input: Movie_crewEntry): Movie_crew!,
+  updateMovie_crew(input: Movie_crewEntry): Movie_crew!,
+  deleteMovie_crew(where: Movie_crew): Boolean,
+  
+  createMovie_genres(input: Movie_genresEntry): Movie_genres!,
+  updateMovie_genres(input: Movie_genresEntry): Movie_genres!,
+  deleteMovie_genres(where: Movie_genres): Boolean,
+  
+  createMovie_keywords(input: Movie_keywordsEntry): Movie_keywords!,
+  updateMovie_keywords(input: Movie_keywordsEntry): Movie_keywords!,
+  deleteMovie_keywords(where: Movie_keywords): Boolean,
+  
+  createMovie_languages(input: Movie_languagesEntry): Movie_languages!,
+  updateMovie_languages(input: Movie_languagesEntry): Movie_languages!,
+  deleteMovie_languages(where: Movie_languages): Boolean,
+  
+  createPerson(input: PersonEntry): Person!,
+  updatePerson(person_id: Int!, input: PersonEntry): Person!,
+  deletePerson(where: Person): Boolean,
+  
+  createProduction_company(input: Production_companyEntry): Production_company!,
+  updateProduction_company(company_id: Int!, input: Production_companyEntry): Production_company!,
+  deleteProduction_company(where: Production_company): Boolean,
+  
+  createProduction_country(input: Production_countryEntry): Production_country!,
+  updateProduction_country(input: Production_countryEntry): Production_country!,
+  deleteProduction_country(where: Production_country): Boolean
 }
