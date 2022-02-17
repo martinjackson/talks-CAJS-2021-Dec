@@ -40,9 +40,9 @@ https://www.databasestar.com/sample-data-download-page
 graph TD;
     A[www.databasestar.com sample-data-download-page] --> M[sample_data_movies_mysql.sql];
     M --> C[MySQL DB];
-    C -->|[1] convert-mysql-to-mongo.js| D[Mongo DB];
-    M -->|[2] create-dataStruct.js| E[dataStruct.json];
-    E -->|[2] gen-graphql-schema.js| F[schema.graphlq resolvers.js];
+    C -->|1. convert-mysql-to-mongo.js| D[Mongo DB];
+    M -->|2. create-dataStruct.js| E[dataStruct.json];
+    E -->|2. gen-graphql-schema.js| F[schema.graphlq resolvers.js];
     F --> G[Nodejs Express GraphQL]
     G --> H[GraphQLi web interface]
     H -->|future| I[React Single-Page-App]
