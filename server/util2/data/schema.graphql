@@ -3,7 +3,6 @@ scalar Date
 scalar Blob
 scalar JSON
 scalar JSONObject
-
  """                            from movies.country """
 type Country {
  country_id: Int!,

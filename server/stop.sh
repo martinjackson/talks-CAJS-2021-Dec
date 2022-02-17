@@ -1,9 +1,7 @@
 #!/bin/bash
 
-#  move to directory where the script resides
-cd "$(dirname "$0")"
+CMD="server.js GraphQL-MONGO"
 
+ps aux | grep "$CMD" | grep -v grep | awk '{print $2}' | xargs sudo kill 
 
-NODE_PID=$(cat server.pid)
-
-sudo kill $NODE_PID
+ps aux | grep "$CMD" | grep -v grep 

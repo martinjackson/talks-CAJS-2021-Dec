@@ -6,7 +6,7 @@
 
 getQueryResult(tableName, fields, where)
     tableName:          ie. 'movies.country'
-    fields:             ????? TODO ??????
+    fields:             
     where:              can be {}
 
 

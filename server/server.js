@@ -3,7 +3,9 @@
 /* eslint-disable indent */
 
 import path from 'path'
-import { serve } from '@martinjackson/simple-express'
+import pkg from '@martinjackson/simple-express';
+const { serve } = pkg;
+
 import apiRoutes from './apiRoutes.js'
 
 serve(apiRoutes, '.env')

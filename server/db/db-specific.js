@@ -14,7 +14,7 @@ const uri = `mongodb://${cfg.user}:${cfg.pass}@localhost/movies`;
 const client = new MongoClient(uri);
 
 
-const connectionMade = false;
+let connectionMade = false;
 // -----------------------------------------------------------------------------------------------
 export async function makeConn() {
 
