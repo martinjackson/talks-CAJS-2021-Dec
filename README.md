@@ -50,10 +50,10 @@ graph TD;
     G -.-> D
 ```
 
-[1] `node ` [convert-mysql-to-mongo.js](./code/convert-mysql-to-mongo.js)
+[1] `node convert-mysql-to-mongo.js` [Source](./code/convert-mysql-to-mongo.js)
 
 [2] Use of create-dataStruct.js gen-graphql-schema.js
-Source can be found [here](https://github.com/martinjackson/create-table-to-graphql.schema)
+[Source](https://github.com/martinjackson/create-table-to-graphql.schema)
 ```bash
 #!/bin/bash
 
