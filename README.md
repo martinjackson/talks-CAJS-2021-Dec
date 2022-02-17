@@ -28,9 +28,9 @@ __Twitter:__ <a href="https://twitter.com/martin_jackso"> @martin_jackso</a>
 ![My opinions are my own](images/nctr-disclaimer.png)
 
 ---
-### I am using Mermaid Graphs in this Markdown, you will need the following Google Chrome plugin to see the graphs.
+### I am using Mermaid Graphs in this Markdown (Now supported by GitHub as of 02-14-2022)
 
-Chrome: https://chrome.google.com/webstore/detail/github-%20-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe?hl=en
+Chrome Plugin: https://chrome.google.com/webstore/detail/github-%20-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe?hl=en
 
 ---
 
@@ -40,9 +40,9 @@ https://www.databasestar.com/sample-data-download-page
 graph TD;
     A[www.databasestar.com sample-data-download-page] --> M[sample_data_movies_mysql.sql];
     M --> C[MySQL DB];
-    C -->|convert-mysql-to-mongo.js| D[Mongo DB];
-    M -->|create-dataStruct.js| E[dataStruct.json];
-    E -->|gen-graphql-schema.js| F[schema.graphlq helpers.js resolvers.js];
+    C -->|[1] convert-mysql-to-mongo.js| D[Mongo DB];
+    M -->|[2] create-dataStruct.js| E[dataStruct.json];
+    E -->|[2] gen-graphql-schema.js| F[schema.graphlq resolvers.js];
     F --> G[Nodejs Express GraphQL]
     G --> H[GraphQLi web interface]
     H -->|future| I[React Single-Page-App]
@@ -50,9 +50,10 @@ graph TD;
     G -.-> D
 ```
 
-`node ` [convert-mysql-to-mongo.js](./code/convert-mysql-to-mongo.js)
+[1] `node ` [convert-mysql-to-mongo.js](./code/convert-mysql-to-mongo.js)
 
-
+[2] Use of create-dataStruct.js gen-graphql-schema.js
+Source can be found [here](https://github.com/martinjackson/create-table-to-graphql.schema)
 ```bash
 #!/bin/bash
 
