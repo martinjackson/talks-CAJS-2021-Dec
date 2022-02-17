@@ -5,6 +5,7 @@ __for Working Demo__
 - [x] rework getSQLResult(sql) -> getDBQuery({table,fields,where})
      
 - [ ] working resolvers.js
+- [ ] db-specific-mongo.js to keep the db connection open
 
 
 
