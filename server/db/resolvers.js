@@ -67,6 +67,8 @@ export const resolvers = {
       return getQueryResult('movies.language_role', fields, where);    // where can be {}
       },
       movie(root, where, context, info) {
+         console.log('resolvers movie(root, where, context, info)');
+
          let fields = { "movie_id": "movie_id","title": "title","budget": "budget","homepage": "homepage","overview": "overview","popularity": "popularity","release_date": "release_date","revenue": "revenue","runtime": "runtime","movie_status": "movie_status","tagline": "tagline","vote_average": "vote_average","vote_count": "vote_count" }
       return getQueryResult('movies.movie', fields, where);    // where can be {}
       },
