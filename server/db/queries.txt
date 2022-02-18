@@ -1,0 +1,7 @@
+{
+  movie(where: {movie_id: 11}) {
+    movie_id
+    title
+    budget
+  }
+}

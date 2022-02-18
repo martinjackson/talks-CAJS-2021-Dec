@@ -18,9 +18,12 @@ let connectionMade = false;
 // -----------------------------------------------------------------------------------------------
 export async function makeConn() {
 
+    console.log('Making connection with MongoDB.');
+
     try {
         await client.connect();
         connectionMade = true
+        console.log('MongoDB connection open.');
     } catch (err) {
         console.log('Err:', err);
         throw err;
@@ -55,10 +58,12 @@ export async function getQueryResult(dbCollection, fields, where) {
 
     const [dbName, collection] = dbCollection.split('.')
 
+    console.log('db:', dbName, 'collection:', collection, 'where:', where);
     try {
         await checkConn()
         const db = client.db(dbName);
         result = await db.getCollection(collection).find(where);
+        console.log('results back.');
     } catch (err) {
         console.log('Err:', err);
         throw err;
@@ -91,9 +96,16 @@ async function run() {
       const db = client.db("movies");
       const result = await db.getCollection('movie').find({});
       console.log(result);
-    } finally {
+    } catch (err) {
+        console.log('Err:', err);
+        throw err;
+    }
+
+    /*
+     finally {
       await client.close();
     }
+    */
   }
   
   try {
