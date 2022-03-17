@@ -13,9 +13,29 @@ const client = new MongoClient(uri);
 
 
 // -----------------------------------------------------------------------------------------------
+function unStringRegex(value) {
+
+    // Allow a string from the GraphiQL interface to be processed like a regex
+
+    if (typeof value == 'string' && value.startsWith('/')) {
+        var match = value.match(new RegExp('^/(.*?)/([gimy]*)$'));
+        // TODO: sanity check here
+        value = new RegExp(match[1], match[2]);
+    }
+
+    return value
+}
+
+// -----------------------------------------------------------------------------------------------
 async function query(dbName, collectionName, args) {
 
-    const where = (args.where) ? args.where : args
+    let whereIn = (args.where) ? args.where : args
+
+    const where = {}
+    for (const [key, value] of Object.entries(whereIn)) {
+        where[key] = unStringRegex(value)           // turn GraphiQL strings into real Regex expressions
+      }
+
     console.log('query(', dbName, collectionName, where,')');
 
     try {            
