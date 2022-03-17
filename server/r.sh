@@ -1,5 +1,6 @@
 #!/bin/bash
 
-rm logs/server-2022-03-17.log
+NOW=$(date +'%F')
+rm logs/server-$NOW.log
 ./start.sh
 
