@@ -5,3 +5,11 @@
     budget
   }
 }
+
+{
+movie(where: {title: "/.*Star Wars.*/" } ) {
+    movie_id
+    title
+    budget
+  }
+}

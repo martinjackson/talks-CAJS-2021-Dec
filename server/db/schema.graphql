@@ -60,6 +60,7 @@ type Movie {
  title: String,
  budget: Int,
  homepage: String,
+ Poster: String,
  overview: String,
  popularity: Float,
  release_date: Date,
