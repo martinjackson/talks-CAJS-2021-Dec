@@ -1,5 +1,6 @@
 
 import { MongoClient } from "mongodb"
+import {getPoster, saveOmdbInfo} from './omdb-lookup.js'
 
 const uri = 'mongodb://localhost:27017/?readPreference=primary&directConnection=true&ssl=false'
 const client = new MongoClient(uri);
@@ -48,6 +49,11 @@ async function query(dbName, collectionName, args) {
       await cursor.forEach(rec => result.push(rec));       // does not work without await    
 
       await client.close()     
+
+      // Add data from another source
+      await result.forEach(rec => rec.Poster = getPoster(rec.movie_id, rec.title)); 
+      saveOmdbInfo()  // tell omdb-lookup, done looping thru the data, good time to save
+
       return result
 
     } catch (err) {
