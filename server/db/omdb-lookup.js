@@ -96,6 +96,8 @@ export function getPoster(id, title) {
 // -----------------------------------------------------------------------------------------------
 function lookupOmdbInfo(id, title) {
 
+    return;      //  {"Response":"False","Error":"Request limit reached!"}  2022-03-17 4pm CDT
+
     const url = 'https://www.omdbapi.com/?apikey='+KEY+'&t='+encodeURIComponent(title)
     const settings = { method: "Get" };
 
