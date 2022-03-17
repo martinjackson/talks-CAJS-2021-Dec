@@ -11,7 +11,8 @@ https://github.com/othneildrew/Best-README-Template
 </p>
 
 <h3 align="center">Using GraphQL with MongoDB</h3>
-<h3 align="center">December 16, 2021</h3>
+<h3 align="center">March 17, 2022</h3>
+<img  align="right" src="images/Shamrock.svg" height="120px" />
 
 ---
 

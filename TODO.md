@@ -4,8 +4,7 @@ __for Working Demo__
 - [x] add "no Camel" switch to schema.graphql generator 
 - [x] rework getSQLResult(sql) -> getDBQuery({table,fields,where})
      
-- [ ] working resolvers.js
-- [x] db-specific-mongo.js to keep the db connection open
+- [x] working resolvers.js
 
 
 
