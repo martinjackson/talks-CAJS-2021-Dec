@@ -1,15 +1,16 @@
-/* eslint-disable object-shorthand */
-/* eslint-disable no-multi-spaces */
-/* eslint-disable indent */
 
-import path from 'path'
+import serviceRunning from 'service-already-running'
+
+// import { serve } from '@martinjackson/simple-express'
 import pkg from '@martinjackson/simple-express';
 const { serve } = pkg;
-
 import apiRoutes from './apiRoutes.js'
 
-serve(apiRoutes, '.env')
+const run = async () => {
+    console.log('\n-------------------------------------------------------');  
+    await serviceRunning.killOthers();
 
-// run with --help for all the options
-// use ./start.sh or ./test.sh to start (easier to stop later)
+    serve(apiRoutes, '.env')
+}
 
+run()
