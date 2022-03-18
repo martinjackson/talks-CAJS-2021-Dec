@@ -85,7 +85,7 @@ type Movie_cast {
  person_id: Int,
  character_name: String,
  gender_id: Int,
- cast_order: Int
+ cast_order: Int 
 }
 
 """                            from movies.movie_company """

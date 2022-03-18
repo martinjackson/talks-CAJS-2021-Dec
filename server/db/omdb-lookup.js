@@ -20,6 +20,7 @@ if (!KEY) {
 // import omdbCache from './omdbCache.json'        requires NodeJS flag ie. node --experimental-json-modules 
 const omdbCacheFile = path.resolve(__dirname, 'omdbCache.json')
 const omdbCache = JSON.parse(fs.readFileSync(omdbCacheFile, 'utf8'));
+// const omdbCache = {}
 
 let omdbCacheSaveInProgress = false;
 let omdbCacheNeedsSaving = false;
